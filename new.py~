@@ -23,13 +23,7 @@ class Node:
         self.p = p
 
     def updatemax(self):
-        if self == NIL:
-            pass
-        else:
-            if self.left != NIL:
-                self.maxi = max(self.maxi,self.left.maxi)
-            if self.right != NIL:
-                self.maxi = max(self.maxi,self.right.maxi)
+        self.maxi = max(self.interval.high,self.left.max,self.right.max)
         
 class Tree:
     def __init__(self,root=NIL):
@@ -69,9 +63,6 @@ class Tree:
         y.right = x
         x.p = y
 
-        x.updatemax()
-        x.p.updatemax()
-
     def left_rotate(self,x):
         assert (x.right != NIL)
         y = x.right
@@ -87,9 +78,6 @@ class Tree:
             x.p.right = y
         y.left = x
         x.p = y
-
-        x.updatemax()
-        x.p.updatemax()
 
 
     def rb_insert(self,x):
@@ -129,6 +117,7 @@ class Tree:
 
     def insert_node(self,x):
         self.rb_insert(x)
+        #x.updatemax()
 
     def insert_interval (self,interval):
         new_node = Node(interval)
