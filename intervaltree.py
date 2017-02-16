@@ -1,22 +1,23 @@
 RED = "RED"
 BLACK = "BLACK"
 
-Class NilNode(object):
+class NilNode(object):
         def __init__(self):
 		self.color = BLACK
 		
 NIL = NilNode() # for leaf Sentinel
 
-Class Interval(object):
+class Interval(object):
 	def _init__(self,low,high):
 		self.low = low
 		self.high = high
 		
-Class Node(object):
+class Node(object):
 	def __init__(self,interval,color=RED,left=NIL,right=NIL,p=NIL):
 		self.color = color
 		self.key = self.inteval.low
 		self.maxi = self.maxi
+                self.interval = interval
 		self.left = left
 		self.right=right
 		self.p = p
@@ -24,7 +25,7 @@ Class Node(object):
 	def updatemax(self,newmax):
                 self.max = newmax
 		
-Class Tree(object):
+class Tree(object):
 	def __init__(self,root=NIL):
 		self.root = root
 		
@@ -121,3 +122,4 @@ Class Tree(object):
 
         def insert_node(self,x):
                 self.rb_insert(x)
+                x.maxi = max(x.interval.high,x.left.max,x.right.max)
