@@ -2,7 +2,7 @@ RED = "RED"
 BLACK = "BLACK"
 
 Class NilNode(object):
-	def __init__(self):
+        def __init__(self):
 		self.color = BLACK
 		
 NIL = NilNode() # for leaf Sentinel
@@ -22,9 +22,9 @@ Class Node(object):
 		self.p = p
 		
 	def updatemax(self,newmax):
-		self.max = newmax
+                self.max = newmax
 		
-Class Tree():
+Class Tree(object):
 	def __init__(self,root=NIL):
 		self.root = root
 		
@@ -86,7 +86,7 @@ Class Tree():
 		x.p = y
 		
 	def rb_insert(self,x):
-		self.tree_insert(self, x)
+		self.tree_insert(x)
 		x.color = RED
 		while x != self.root and x.p.color == RED:
 			if x.p == x.p.p.left:
@@ -99,10 +99,10 @@ Class Tree():
 				else:
 					if x == x.p.right:
 						x = x.p
-						self.left_rotate(tree, x)
+						self.left_rotate(x)
 					x.p.color = BLACK
 					x.p.p.color = RED
-					self.right_rotate(tree, x.p.p)
+					self.right_rotate(x.p.p)
 			else:
 				y = x.p.p.left
 				if y.color == RED:
@@ -113,8 +113,11 @@ Class Tree():
 				else:
 					if x == x.p.left:
 						x = x.p
-						self.right_rotate(tree, x)
+						self.right_rotate(x)
 					x.p.color = BLACK
 					x.p.p.color = RED
-					self.left_rotate(tree, x.p.p)
-		self.root.color = BLACK
+					self.left_rotate(x.p.p)
+                self.root.color = BLACK
+
+        def insert_node(self,x):
+                self.rb_insert(x)
