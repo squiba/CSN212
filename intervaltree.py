@@ -131,5 +131,19 @@ class Tree:
         self.rb_insert(x)
 
     def insert_interval (self,interval):
+        if interval.low > interval.high:
+            print("invalid interval as low >high---->",interval.low,interval.high)
+            pass
         new_node = Node(interval)
         self.insert_node(new_node)
+
+    def search(self,i):
+        x=self.root
+        while x!= NIL and (i.low > x.interval.high or x.interval.low > i.high):
+            if x.left!=NIL and i.low<x.left.maxi:
+                x=x.left
+            else:
+                x=x.right
+        if x==NIL:
+            return False
+        return x
