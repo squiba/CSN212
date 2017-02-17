@@ -126,7 +126,92 @@ class Tree:
                     self.left_rotate(x.p.p)
         self.root.color = BLACK
 
+    def rb_transplant(self,u,v):
+        if u.p==NIL:
+            self.root=v
+        elif u==u.p.left:
+            u.p.left = v
+        else:
+            u.p.right = v
+        v.p = u.p
 
+    def rb_delete_fixup(self,x):
+        while x!=self.root and x.color==BLACK:
+            if x==x.p.left:
+                w=x.p.right
+                if w.color==RED:
+                    w.color=BLACK
+                    x.p.color=RED
+                    self.left_rotate(x.p)
+                    w=x.p.right
+                if w.left.color==BLACK and w.right.color==BLACK:
+                    w.color=RED
+                    x=x.p
+                else:
+                    if w.right.color==BLACK:
+                        w.left.color=BLACK
+                        w.color=RED
+                        self.right_rotate(w)
+                        w=x.p.right
+                    w.color=x.p.color
+                    x.p.color=BLACK
+                    w.right.color=BLACK
+                    self.left_rotate(x.p)
+                    x=self.root
+            else:
+                w=x.p.left
+                if w.color==RED:
+                    w.color=BLACK
+                    x.p.color=RED
+                    self.right_rotate(x.p)
+                    w=x.p.left
+                if w.right.color==BLACK and w.left.color==BLACK:
+                    w.color=RED
+                    x=x.p
+                else:
+                    if w.left.color==BLACK:
+                        w.right.color=BLACK
+                        w.color=RED
+                        self.left_rotate(w)
+                        w=x.p.left
+                    w.color=x.p.color
+                    x.p.color=BLACK
+                    w.left.color=BLACK
+                    self.right_rotate(x.p)
+                    x=self.root
+        x.color=BLACK
+
+    def tree_minimum(self,x):
+        while x.left!=NIL:
+            x=x.left
+        return x
+    
+    def rb_delete(self,z):
+        y=z
+        y_original_color=y.color
+        if z.left == NIL:
+            x=z.right
+            self.rb_transplant(z,z.right)
+        elif z.right==NIL:
+            x=z.left
+            self.rb_transplant(z,z.left)
+        else:
+            y=self.tree_minimum(z.right)
+            y_original_color=y.color
+            x=y.right
+            if y.p==z:
+                x.p=y
+            else:
+                self.rb_transplant(y,y.right)
+                y.right=z.right
+                y.right.p=y
+            self.rb_transplant(z,y)
+            y.left=z.left
+            y.left.p=y
+            y.color=z.color
+        if y_original_color==BLACK:
+            self.rb_delete_fixup(x)
+            
     def insert_node(self,x):
         self.rb_insert(x)
 
@@ -147,3 +232,6 @@ class Tree:
         if x==NIL:
             return False
         return x
+
+    def delete_node(self,x):
+        self.rb_delete(x)
