@@ -1,13 +1,12 @@
 from intervaltree import Interval,Tree
 
 tree = Tree()
-tree.insert_interval(Interval(15,20))
-tree.insert_interval(Interval(10,30))
-tree.insert_interval(Interval(17,19))
-tree.insert_interval(Interval(5,20))
-tree.insert_interval(Interval(12,15))
-tree.insert_interval(Interval(130,40))
 
+inputs = [Interval(15,20), Interval(10,30), Interval(17,19), Interval(5,20), Interval(12,15), Interval(130,40)]
+
+for interval in inputs:
+        tree.insert_interval(interval)
+        
 def Find(x):
 	if tree.search(x):
 		print("interval found")

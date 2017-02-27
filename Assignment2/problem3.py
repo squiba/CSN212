@@ -1,6 +1,7 @@
 """ 
+The Lucky Draw
+Longest Increasing Subsequence
 https://www.codechef.com/problems/D2/ 
-python2 
 
 """
 def main():
