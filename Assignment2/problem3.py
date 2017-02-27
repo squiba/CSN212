@@ -23,4 +23,4 @@ def main():
         answer = 0
         for i in range(N):
             answer = max(answer,long_increasing_subseq(a,i,N))
-            
+        print answer
