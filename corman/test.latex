@@ -1,0 +1,64 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{forest}
+\begin{document}
+
+\begin{forest}
+  for tree={
+    draw,
+    align=center
+  }
+  [root
+    [child
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+      [grandchild, calign with current]
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+    ]
+    [child
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+      [grandchild, calign with current]
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+    ]
+    [child
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+      [grandchild, calign with current]
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+    ]
+    [child
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+      [grandchild, calign with current]
+      [grandchild
+        [great\\-grandchild]
+        [great\\-grandchild]
+        [great\\-grandchild]
+      ]
+    ]
+  ]
+\end{forest}
