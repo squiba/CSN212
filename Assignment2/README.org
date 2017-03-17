@@ -1,0 +1,7 @@
+* Assignment 2
+Dynamic Programming. 3 questions.
+1. problem1: https://community.topcoder.com/stat?c=problem_statement&pm=1259
+2. problem2: https://community.topcoder.com/stat?c=problem_statement&pm=1889
+3. problem3: https://www.codechef.com/problems/D2/
+
+
