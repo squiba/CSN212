@@ -8,7 +8,7 @@ Chart showing the running time vs input
 
 ** Data points
 
-#+BEGIN_SRC python :exports output
+#+BEGIN_SRC python :exports results
   import numpy as np
   return np.transpose(np.load('Vandtime.npy'))
 #+END_SRC
