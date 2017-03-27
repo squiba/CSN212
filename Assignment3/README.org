@@ -5,3 +5,21 @@ Implement Bellman Ford Algorithm and run it for a number of a number of inputs.
 Chart showing the running time vs input  
 
 [[performance.png]]
+
+** Data points
+
+#+BEGIN_SRC python :results value table
+  import numpy as np
+  return np.transpose(np.load('Vandtime.npy'))
+#+END_SRC
+
+#+RESULTS:
+| Number of nodes | Time in Seconds |
+|             1.0 |  2.83718109e-05 |
+|            10.0 |    0.0012075901 |
+|           100.0 |     0.904401064 |
+|           200.0 |      7.20299768 |
+|           500.0 |      118.988769 |
+|          1000.0 |      981.155442 |
+|          2000.0 |      8035.15184 |
+
