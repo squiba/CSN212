@@ -8,13 +8,13 @@ Chart showing the running time vs input
 
 ** Data points
 
-#+BEGIN_SRC python :results value table
+#+BEGIN_SRC python :exports both
   import numpy as np
   return np.transpose(np.load('Vandtime.npy'))
 #+END_SRC
 
 #+RESULTS:
-| Number of nodes | Time in Seconds |
+| Number of nodes | Time in seconds |
 |             1.0 |  2.83718109e-05 |
 |            10.0 |    0.0012075901 |
 |           100.0 |     0.904401064 |
