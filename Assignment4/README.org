@@ -13,7 +13,7 @@ and 3 test cases with varying number of points on the hull; one of those should 
 - *giftwraping.py*: Gift wrapping / Jarvis's march Algorithm
 ** Copmarision Chart 
 Point was generated randomely on a reactangular grid of size 100000 x 100000.
-#+BEGIN_SRC ipython :session exports None
+#+BEGIN_SRC ipython :session :exports none
   %matplotlib inline
   import matplotlib.pyplot as plt
   import numpy as np
@@ -41,5 +41,5 @@ Point was generated randomely on a reactangular grid of size 100000 x 100000.
 #+END_SRC
 
 
-[[Comparision_Chart.png]]
+[[Comparison_Chart.png]]
 [[Comparison_Chart_2.png]]
