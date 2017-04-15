@@ -1,0 +1,45 @@
+* Convex Hull Algorithms
+
+Implement the following algorithms for constructing the convex hull: [Github link]
+[1.5 points] 1. Gift wrapping algorithm
+[1.5 points] 2. Graham scan algorithm
+[1.5 points] 3. Quickhull
+
+[1.5 points] Comparison chart between those two algorithms. [Pdf chart]
+Take 5 test cases with number of points as (n = )100, 1000, 2000, 5000, 10000
+and 3 test cases with varying number of points on the hull; one of those should be n atleast (i.e. equal to the number of points)
+** Implemetation
+- *grahamscan.py*: Graham's Scan Algorithm
+- *giftwraping.py*: Gift wrapping / Jarvis's march Algorithm
+** Copmarision Chart 
+Point was generated randomely on a reactangular grid of size 100000 x 100000.
+#+BEGIN_SRC ipython :session exports None
+  %matplotlib inline
+  import matplotlib.pyplot as plt
+  import numpy as np
+
+  from grahamscan import *
+  from giftwrapping import *
+
+  no_of_points = [100, 1000, 2000, 5000, 10000]
+  Graham_time_taken = []
+  Gift_time_taken =[]
+  header = ['no_of_points','Graham_scan_time_taken','Gift_wrapping_time_taken']
+  for i in range(len(no_of_points)):
+      Graham_time_taken.append(analyse_time_graham(no_of_points[i]))
+      Gift_time_taken.append(analyse_time_gift(no_of_points[i]))
+
+  np.save("hull_data_time",(header,no_of_points,Graham_time_taken,Gift_time_taken))
+
+  plt.plot(no_of_points,Graham_time_taken,'-o')
+  plt.plot(no_of_points,Gift_time_taken,'-o')
+  plt.xlabel("Number of points")
+  plt.ylabel("Running Time")
+  plt.legend(['Graham_Scan','Gift_Wrapping'], loc='upper left')
+  plt.title("Comparision chart between Graham and Gift algorithms with randomly generated points on a square grid")
+  plt.savefig("Comparision_Chart")
+#+END_SRC
+
+
+[[Comparision_Chart.png]]
+[[Comparison_Chart_2.png]]

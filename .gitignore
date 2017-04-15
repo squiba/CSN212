@@ -1,3 +1,4 @@
 corman/
 *.pyc
 *~
+*.ipynb_checkpoints
