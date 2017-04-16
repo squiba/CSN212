@@ -42,7 +42,7 @@ Points was generated randomely on a reactangular grid of size 100000 x 100000.
 #+END_SRC
 
 
-[[Comparison_Chart.png]]
-[[Comparison_Chart_2.png]]
+[[pics/Comparison_Chart.png]]
+[[pics/Comparison_Chart_2.png]]
 ** Comparison for different number of points on the hull
-[[different_points.png]]
+[[pics/different_points.png]]
