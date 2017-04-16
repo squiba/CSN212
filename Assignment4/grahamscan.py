@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import sys
 import random
 import time 
+import math
 
 gridsize = 100000
 
@@ -42,12 +43,32 @@ def find_distance(pointA, pointB):
         print('neg')
     return abs(distance)
 
+def generate_circle_points(array_sizes):
+    "generate points on a concex hull or on a circle"
+    pts_array = {}
+    centre_x = 50000
+    centre_y = 50000
+    radius = 50000
+    for ii in range(array_sizes):
+        alpha = 2*math.pi*random.random()
+        x=centre_x+radius*math.cos(alpha)
+        y=centre_y+radius*math.sin(alpha)
+
+        while [x,y] in pts_array.values():
+            alpha = 2*math.pi*random.random()
+            x=centre_x+radius*math.cos(alpha)
+            y=centre_y+radius*math.sin(alpha)
+            
+
+        pts_array[ii] = [x,y]
+    return list(pts_array.values())
+    
 def generate_random_array(array_sizes):
     """Generate array with random points for a given sizes"""
     pts_array = {}
     for ii in range(array_sizes):
-        random_x = random.randrange(0, 1000)
-        random_y = random.randrange(0, 1000)
+        random_x = random.randrange(0, gridsize)
+        random_y = random.randrange(0, gridsize)
         
         #Uncomment line below and comment while line when want
         #circular_distribution, otherwise it is rectangular distribution
@@ -55,8 +76,8 @@ def generate_random_array(array_sizes):
         
         #check if the point is unique in the list
         while [random_x, random_y] in pts_array.values():
-            random_x = random.randrange(0, 1000)
-            random_y = random.randrange(0, 1000)                      
+            random_x = random.randrange(0, gridsize)
+            random_y = random.randrange(0, gridsize)                      
         pts_array[ii] = [random_x , random_y]                         
     return list(pts_array.values())   
 
