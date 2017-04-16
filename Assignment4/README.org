@@ -1,18 +1,20 @@
 * Convex Hull Algorithms
 
-Implement the following algorithms for constructing the convex hull: [Github link]
-[1.5 points] 1. Gift wrapping algorithm
-[1.5 points] 2. Graham scan algorithm
-[1.5 points] 3. Quickhull
+Implement the following algorithms for constructing the convex hull:
+1. Gift wrapping algorithm
+2. Graham scan algorithm
+3. Quickhull
 
-[1.5 points] Comparison chart between those two algorithms. [Pdf chart]
+Comparison chart between those two algorithms. [Pdf chart]
 Take 5 test cases with number of points as (n = )100, 1000, 2000, 5000, 10000
 and 3 test cases with varying number of points on the hull; one of those should be n atleast (i.e. equal to the number of points)
 ** Implemetation
 - *grahamscan.py*: Graham's Scan Algorithm
 - *giftwraping.py*: Gift wrapping / Jarvis's march Algorithm
 ** Copmarision Chart 
-Point was generated randomely on a reactangular grid of size 100000 x 100000.
+Points was generated randomely on a reactangular grid of size 100000 x 100000.  
+Graham - $\O(n \log n)$  
+Gift wrapping - $\O(n h)$
 #+BEGIN_SRC ipython :session :exports none
   %matplotlib inline
   import matplotlib.pyplot as plt
